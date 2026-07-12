@@ -12,7 +12,6 @@
     "url": "git+https://github.com/mrgreyh01/realtalk-web.git"
   },
   "author": "Prakriti Kesharwani",
-  "type": "commonjs",
   "main": "tailwind.config.js",
   "scripts": {
     "dev": "next dev",
