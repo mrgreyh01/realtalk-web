@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --c-app: #e9f0fb;
+  --c-window: #ffffff;
+  --c-sidebar: #ffffff;
+  --c-text: #1e2740;
+  --c-muted: #98a2b6;
+  --c-faint: #c0c8d6;
+  --c-input: #f2f5fb;
+  --c-active: #eef4ff;
+  --c-border: rgba(20, 30, 60, 0.06);
+  --c-bubble-in: #eef2f9;
+  --c-bubble-in-text: #374363;
+  --c-chat-bg: #f5f8fd;
+  --c-offline: #c2cad6;
+
+  --accent: #e1720f;
+  --accent-2: rgb(233, 154, 82);
+  --accent-dk: rgb(176, 89, 12);
+  --accent-soft: rgba(225, 114, 15, 0.11);
+}
+
+.dark {
+  --c-app: #090e16;
+  --c-window: #161d2b;
+  --c-sidebar: #141b28;
+  --c-text: #eaeff7;
+  --c-muted: #818da4;
+  --c-faint: #586074;
+  --c-input: #212a3b;
+  --c-active: #222d40;
+  --c-border: rgba(255, 255, 255, 0.07);
+  --c-bubble-in: #232e42;
+  --c-bubble-in-text: #d9e0ee;
+  --c-chat-bg: #0d131d;
+  --c-offline: #4b5568;
+
+  --accent-soft: rgba(225, 114, 15, 0.2);
+  color-scheme: dark;
+}
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--c-app);
+    color: var(--c-text);
+    font-family: var(--font-manrope), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    transition: background 0.45s ease, color 0.45s ease;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--c-faint);
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus, 
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 50px var(--c-input) inset !important;
+    -webkit-text-fill-color: var(--c-text) !important;
+    background-clip: content-box !important;
+  }
+}
+
+@layer utilities {
+  .scroll-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--c-border) transparent;
+  }
+
+  .scroll-thin::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  .scroll-thin::-webkit-scrollbar-thumb {
+    background: var(--c-border);
+    border-radius: 99px;
+  }
+
+  .scroll-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+/*
+  The chat window floats over the same background as the auth screen.
+  The inset is about five percent of the shorter viewport edge, with a floor
+  and a ceiling so it stays sensible on a laptop and on a very large monitor.
+*/
+.screen-inset {
+  padding: clamp(16px, 5vmin, 56px);
+}
+
+@media (max-width: 900px) {
+  .screen-inset {
+    padding: 0;
+  }
+}
