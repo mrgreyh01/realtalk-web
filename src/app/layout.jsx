@@ -22,6 +22,12 @@ export const metadata = {
   description: 'Private realtime messaging',
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${manrope.variable} ${poppins.variable}`} suppressHydrationWarning>

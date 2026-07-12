@@ -18,7 +18,7 @@ export default function ChatPage() {
   }, [user, restoring, router]);
 
   return (
-    <main className="screen-inset relative flex h-screen items-center justify-center overflow-hidden bg-app">
+    <main className="screen-inset relative flex h-[100dvh] items-center justify-center overflow-hidden bg-app">
       <AmbientBackground />
 
       {user ? (
